@@ -1,0 +1,15 @@
+
+services:
+  terraform:
+    image: hashicorp/terraform:1.14.3
+    working_dir: /terraform
+    volumes:
+      - ./terraform:/terraform
+    entrypoint: ["terraform"]
+  gitea:
+    image: gitea/gitea:1.22.6
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/data
+    
