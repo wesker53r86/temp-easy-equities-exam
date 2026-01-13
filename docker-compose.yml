@@ -5,6 +5,7 @@ services:
     working_dir: /terraform
     volumes:
       - ./terraform:/terraform
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock
     entrypoint: ["terraform"]
   gitea:
     image: gitea/gitea:1.22.6

@@ -14,12 +14,11 @@ terraform{
 }
 
 provider "gitea" {
-  base_url= "http://gitea:3000"
+  base_url= "http://localhost:3000"
   token = "0226869d0015a1bef0ae3f5dcdfbdc41f0cc0722" #this will be loaded as an envar
 }
 
 provider "docker"{
-  host = "unix:///run/user/1000/podman/podman.sock"
 }
 
 resource "gitea_repository" "test_repo"{
@@ -32,7 +31,7 @@ resource "docker_image" "nginx" {
 }
 
 resource "docker_container" "exam-web-server" {
-  image = docker_image.nginx
+  image = docker_image.nginx.name
   name = "exam-web-server"
   ports {
     internal = "80"
