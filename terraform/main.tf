@@ -23,7 +23,7 @@ provider "docker"{
 
 resource "gitea_repository" "test_repo"{
   username = "testadmin"
-  name = "test-repo"
+  name = "terraform-docker-exam"
 }
 
 resource "docker_image" "nginx" {
