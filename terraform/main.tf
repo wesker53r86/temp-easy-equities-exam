@@ -35,6 +35,6 @@ resource "docker_container" "exam-web-server" {
   name = "exam-web-server"
   ports {
     internal = "80"
-    external = "8080"
+    external = "8081"
   }
 }
